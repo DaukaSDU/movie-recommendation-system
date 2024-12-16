@@ -14,7 +14,7 @@
         Submit 
       </div>
       <div class="footer">
-        <div @click="this.$emit('change')" class="toRegister">
+        <div @click="this.$emit('changeToLogin')" class="toRegister">
           Go back
         </div>
       </div>
