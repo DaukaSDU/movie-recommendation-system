@@ -13,7 +13,7 @@
       </div>
       <div class="footer">
         Don't have an account? 
-        <div @click="this.$emit('change')" class="toRegister">
+        <div @click="this.$emit('changeToRegister')" class="toRegister">
           Register 
         </div>
       </div>

@@ -4,10 +4,10 @@
       <logotype/> 
       <div class="content">
         <div class="login" v-if="isLogin">
-          <login @change="changeComponent"/> 
+          <login @changeToRegister="changeComponent"/> 
         </div>
         <div class="register" v-else>
-          <register @change=" changeComponent"/>
+          <register @changeToLogin="changeComponent"/>
         </div>
       </div>
     </div>
