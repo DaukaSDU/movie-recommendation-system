@@ -1,5 +1,7 @@
 package service
 
+// CRISTIANO SUI
+
 import (
 	"crypto/sha1"
 	"errors"
