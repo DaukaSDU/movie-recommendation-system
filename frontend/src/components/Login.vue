@@ -4,11 +4,11 @@
       <div class="title">
         Login
       </div>
-      <app-input v-model="email" title="Email" :isPrivate="false" />
+      <app-input v-model="username" title="Username" :isPrivate="false" />
       <div class="br_a"></div>
       <app-input v-model="password" title="Password" :isPrivate="true" />
       <div class="br_a"></div>
-      <div class="button">
+      <div @click="login" class="button">
         Login 
       </div>
       <div class="footer">
@@ -73,12 +73,35 @@ import InputVue from './Input.vue'
 export default {
   data (){
     return {
-      email: "" , 
+      username: "" , 
       password: ""
     }
   } , 
   components: {
     'app-input': InputVue 
-  } 
+  },
+  methods: {
+    async login() {
+      const response = await fetch("http://localhost:8000/auth/sign-in", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: this.username,
+          password: this.password,
+        }),
+      });
+
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("User's token:", result);
+      } else {
+        const error = await response.json();
+        console.log("Error: ", error);
+      }
+    }
+  }
 }
 </script>

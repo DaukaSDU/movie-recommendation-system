@@ -4,13 +4,13 @@
       <div class="title">
         Register 
       </div>
-      <app-input v-model="email" title="Email" :isPrivate="false" />
+      <app-input v-model="username" title="Username" :isPrivate="false" />
+      <div class="br_a"></div>
+      <app-input v-model="name" title="Name" :isPrivate="false" />
       <div class="br_a"></div>
       <app-input v-model="password" title="Password" :isPrivate="true" />
       <div class="br_a"></div>
-      <app-input v-model="confirm" title="Confirm Password" :isPrivate="true" />
-      <div class="br_a"></div>
-      <div class="button">
+      <div @click="submitForm" class="button">
         Submit 
       </div>
       <div class="footer">
@@ -74,13 +74,37 @@ import InputVue from './Input.vue'
 export default {
   data(){
     return {
-      email: "" , 
-      password: "" , 
-      confirm: ""
+      name: "" , 
+      username: "" , 
+      password: ""
     }
-  } , 
+  } ,
   components: {
-    'app-input': InputVue 
-  } 
+    'app-input': InputVue
+  },
+  methods: {
+    async submitForm() {
+      const response = await fetch("http://localhost:8000/auth/sign-up", {
+        method: "POST", // Use POST for creating a new user
+        headers: {
+          "Content-Type": "application/json", // Specify that you're sending JSON data
+        },
+        body: JSON.stringify({
+          name: this.name,
+          username: this.username, // Assuming username is the same as name
+          password: this.password,
+        }),
+      });
+
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("User created:", result);
+      } else {
+        const error = await response.json();
+        console.log("Error: ", error);
+      }
+    }
+  }
 }
 </script>

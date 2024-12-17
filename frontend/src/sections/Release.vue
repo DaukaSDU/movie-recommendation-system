@@ -118,6 +118,16 @@
     border-radius: 20px; 
     background: red ; 
   }
+  @media (max-width:1750px){
+    .container{
+      width: 1500px ; 
+    } 
+  }
+  @media (max-width: 1650px){
+    .container{
+      width: 1350px ; 
+    }
+  }
 </style>
 
 <script>
