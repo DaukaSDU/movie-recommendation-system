@@ -34,6 +34,9 @@ export default {
   } , 
   components: {
     'logotype': LogotypeVue 
-  }  
+  }  ,
+  mounted(){
+    this.user = localStorage.getItem('username')
+  }
 }
 </script>
