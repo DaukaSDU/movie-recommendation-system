@@ -101,6 +101,23 @@
   border-radius: 20px; 
   background: red ; 
 }
+
+@media (max-width:1750px){
+  .container{
+    width: 1500px ; 
+  } 
+  .main img{
+    height: 550px ; 
+  }
+}
+@media (max-width: 1650px){
+  .container{
+    width: 1350px ; 
+  }
+  .main img{
+    height: 500px ; 
+  }
+}
 </style>
 
 <script>
