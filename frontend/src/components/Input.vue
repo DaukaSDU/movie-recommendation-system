@@ -1,7 +1,7 @@
 <template> 
   <div class="input">
-    <input v-if="isPrivate" type="password" :placeholder="title" />
-    <input v-else type="text" :placeholder="title" />
+    <input v-if="isPrivate" type="password" :value="modelValue"  @input="$emit('update:modelValue', $event.target.value)" :placeholder="title" />
+    <input v-else type="text"   :value="modelValue"  @input="$emit('update:modelValue', $event.target.value)"  :placeholder="title" />
   </div>
 </template>
 
@@ -20,6 +20,6 @@ input{
 
 <script>
 export default {
-  props: ["title" , "isPrivate"]
+  props: ["title" , "isPrivate" , "modelValue"]
 }
 </script>
