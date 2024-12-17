@@ -4,11 +4,11 @@
       <div class="title">
         Register 
       </div>
-      <app-input title="Email" :isPrivate="false" />
+      <app-input v-model="email" title="Email" :isPrivate="false" />
       <div class="br_a"></div>
-      <app-input title="Password" :isPrivate="true" />
+      <app-input v-model="password" title="Password" :isPrivate="true" />
       <div class="br_a"></div>
-      <app-input title="Confirm Password" :isPrivate="true" />
+      <app-input v-model="confirm" title="Confirm Password" :isPrivate="true" />
       <div class="br_a"></div>
       <div class="button">
         Submit 
@@ -72,6 +72,13 @@
 <script>
 import InputVue from './Input.vue'
 export default {
+  data(){
+    return {
+      email: "" , 
+      password: "" , 
+      confirm: ""
+    }
+  } , 
   components: {
     'app-input': InputVue
   },

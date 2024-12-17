@@ -4,12 +4,12 @@
       <div class="title">
         Login
       </div>
-      <app-input title="Email" :isPrivate="false" />
+      <app-input v-model="email" title="Email" :isPrivate="false" />
       <div class="br_a"></div>
-      <app-input title="Password" :isPrivate="true" />
+      <app-input v-model="password" title="Password" :isPrivate="true" />
       <div class="br_a"></div>
       <div class="button">
-        Login
+        Login 
       </div>
       <div class="footer">
         Don't have an account? 
@@ -71,6 +71,12 @@
 <script>
 import InputVue from './Input.vue'
 export default {
+  data (){
+    return {
+      email: "" , 
+      password: ""
+    }
+  } , 
   components: {
     'app-input': InputVue 
   } 
