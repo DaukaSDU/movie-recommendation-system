@@ -73,7 +73,7 @@
 import InputVue from './Input.vue'
 export default {
   components: {
-    'app-input': InputVue 
-  } 
+    'app-input': InputVue
+  },
 }
 </script>
