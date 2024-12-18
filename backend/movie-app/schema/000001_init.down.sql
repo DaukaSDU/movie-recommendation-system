@@ -1,3 +1,5 @@
 DROP TABLE users;
 
--- DROP TABLE user_movie;
+DROP TABLE movies;
+
+DROP TABLE users_movies;

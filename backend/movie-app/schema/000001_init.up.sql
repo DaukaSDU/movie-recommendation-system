@@ -6,11 +6,15 @@ CREATE TABLE users
     password_hash varchar(255) not null
 );
 
-CREATE TABLE user_movie
+CREATE TABLE movies
 (
-    user_id INT,
-    movie_id INT,
-    PRIMARY KEY (user_id, movie_id),
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (movie_id) REFERENCES movies(movie_id)
+    id serial not null unique,
+    title varchar(255) not null
+);
+
+CREATE TABLE users_movies
+(
+    id serial not null unique,
+    user_id int references users (id) on delete cascade not null,
+    movie_id int references movies (id) on delete cascade not null
 );
