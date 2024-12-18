@@ -97,10 +97,15 @@ export default {
       if (response.ok) {
         const result = await response.json();
         console.log("User's token:", result);
+        this.goMain()
+        localStorage.setItem('username', this.username);
       } else {
         const error = await response.json();
         console.log("Error: ", error);
       }
+    } , 
+    goMain(){
+      this.$router.push('/');
     }
   }
 }
